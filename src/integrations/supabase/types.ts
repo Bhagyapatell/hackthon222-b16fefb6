@@ -54,6 +54,7 @@ export type Database = {
           priority: number
           product_category_id: string | null
           product_id: string | null
+          status: Database["public"]["Enums"]["model_status"]
         }
         Insert: {
           analytical_account_id: string
@@ -67,6 +68,7 @@ export type Database = {
           priority?: number
           product_category_id?: string | null
           product_id?: string | null
+          status?: Database["public"]["Enums"]["model_status"]
         }
         Update: {
           analytical_account_id?: string
@@ -80,6 +82,7 @@ export type Database = {
           priority?: number
           product_category_id?: string | null
           product_id?: string | null
+          status?: Database["public"]["Enums"]["model_status"]
         }
         Relationships: [
           {
@@ -1079,6 +1082,7 @@ export type Database = {
         | "paid"
         | "partially_paid"
         | "cancelled"
+      model_status: "draft" | "confirmed" | "archived"
       order_status: "draft" | "confirmed" | "cancelled"
       payment_mode: "cash" | "bank_transfer" | "cheque" | "online"
       payment_status: "pending" | "completed" | "failed"
@@ -1219,6 +1223,7 @@ export const Constants = {
         "partially_paid",
         "cancelled",
       ],
+      model_status: ["draft", "confirmed", "archived"],
       order_status: ["draft", "confirmed", "cancelled"],
       payment_mode: ["cash", "bank_transfer", "cheque", "online"],
       payment_status: ["pending", "completed", "failed"],
