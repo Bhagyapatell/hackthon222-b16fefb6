@@ -52,6 +52,7 @@ export type Database = {
           partner_id: string | null
           partner_tag_id: string | null
           priority: number
+          product_category_id: string | null
           product_id: string | null
         }
         Insert: {
@@ -64,6 +65,7 @@ export type Database = {
           partner_id?: string | null
           partner_tag_id?: string | null
           priority?: number
+          product_category_id?: string | null
           product_id?: string | null
         }
         Update: {
@@ -76,6 +78,7 @@ export type Database = {
           partner_id?: string | null
           partner_tag_id?: string | null
           priority?: number
+          product_category_id?: string | null
           product_id?: string | null
         }
         Relationships: [
@@ -105,6 +108,13 @@ export type Database = {
             columns: ["partner_tag_id"]
             isOneToOne: false
             referencedRelation: "tags"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "auto_analytical_models_product_category_id_fkey"
+            columns: ["product_category_id"]
+            isOneToOne: false
+            referencedRelation: "product_categories"
             referencedColumns: ["id"]
           },
           {
